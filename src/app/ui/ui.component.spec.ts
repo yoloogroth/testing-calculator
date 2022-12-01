@@ -264,7 +264,7 @@ describe('Ui division - Component', () => {
   // Arrange 
   component.operator1 = 5.0;
   component.operator2 = 2.5;
-  let restaButton = fixture.debugElement.query(By.css('.div-button'));
+  let restaButton = fixture.debugElement.query(By.css('.division-button'));
 
   // Act
   restaButton.triggerEventHandler('click', null);
@@ -360,7 +360,7 @@ describe('Ui mul - Component', () => {
   // Arrange 
   component.operator1 = 5;
   component.operator2 = 3;
-  let mulButton = fixture.debugElement.query(By.css('.mul-button'));
+  let mulButton = fixture.debugElement.query(By.css('.multiplication-button'));
 
   // Act
   mulButton.triggerEventHandler('click', null);
