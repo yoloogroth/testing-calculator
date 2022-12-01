@@ -292,3 +292,99 @@ describe('Ui division - Component', () => {
 });
 
 });
+
+//Multiplicacion
+describe('Ui mul - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ UiComponent ],
+      imports: [FormsModule],
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should mul division method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 2;
+    component.operator2 = 2;
+
+    // Act
+    component.multiplication();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(4);
+ });
+
+ it('Should set operator1 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator1"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '2';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator1).toEqual(2);
+ });
+
+ it('Should set operator2 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator2"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '71';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator2).toEqual(71);
+});
+
+ it('should mul operator1 and operator2 when i click the mul button ', () => {
+  // Arrange 
+  component.operator1 = 5;
+  component.operator2 = 3;
+  let mulButton = fixture.debugElement.query(By.css('.mul-button'));
+
+  // Act
+  mulButton.triggerEventHandler('click', null);
+
+  // Assert
+  expect(component.result).toBe(15);
+
+ });
+
+ it('Should render mult in result div', () => {
+  // Arrange
+  component.operator1 = 6;
+  component.operator2 = 2;
+
+  // Act
+  component.multiplication();
+  fixture.detectChanges();
+
+  let de = fixture.debugElement.query(By.css('.result'));
+  let el : HTMLElement = de.nativeElement;
+
+  // Assert
+  expect(el.innerText).toContain('12');
+
+});
+
+});
