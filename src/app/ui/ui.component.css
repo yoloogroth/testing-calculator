@@ -39,3 +39,9 @@
     color: rgb(0, 255, 234);
     font-size: 16px;
 }
+
+.multiplication-button {
+    cursor: pointer;
+    color: rgb(255, 0, 234);
+    font-size: 20px;
+}
