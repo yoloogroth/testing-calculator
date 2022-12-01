@@ -34,3 +34,8 @@
     color: green;
 }
 
+.division-button {
+    cursor: pointer;
+    color: rgb(0, 255, 234);
+    font-size: 16px;
+}
