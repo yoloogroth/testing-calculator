@@ -34,3 +34,32 @@
     color: green;
 }
 
+.division-button {
+    cursor: pointer;
+    color: rgb(0, 255, 234);
+    font-size: 16px;
+}
+
+.multiplication-button {
+    cursor: pointer;
+    color: rgb(255, 0, 234);
+    font-size: 20px;
+}
+
+.exp-button {
+    cursor: pointer;
+    color: rgb(4, 71, 43);
+    font-size: 20px;
+}
+
+.sqr-button {
+    cursor: pointer;
+    color: rgb(4, 16, 71);
+    font-size: 20px;
+}
+
+.sqrt-button {
+    cursor: pointer;
+    color: rgb(71, 61, 4);
+    font-size: 20px;
+}
