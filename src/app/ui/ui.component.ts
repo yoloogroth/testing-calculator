@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { addition } from "../addition/addition"
 import { division } from '../division/division';
+import { exp } from '../exp/exp';
 import { multiplication } from '../multiplication/multiplication';
 import { substraction } from '../substraction/substraction';
 
@@ -41,6 +42,12 @@ export class UiComponent implements OnInit {
   multiplication() {
     let myresult = 0;
     myresult = multiplication(this.operator1, this.operator2);
+    this.result = myresult;
+  }
+
+  exp() {
+    let myresult = 0;
+    myresult = exp(this.operator1, this.operator2);
     this.result = myresult;
   }
 

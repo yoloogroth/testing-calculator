@@ -45,3 +45,10 @@
     color: rgb(255, 0, 234);
     font-size: 20px;
 }
+
+.exp-button {
+    cursor: pointer;
+    color: rgb(4, 71, 43);
+    font-size: 20px;
+}
+
