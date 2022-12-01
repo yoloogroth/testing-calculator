@@ -101,3 +101,572 @@ describe('Ui Addition - Component', () => {
 
 });
 
+//Resta
+describe('Ui resta - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ UiComponent ],
+      imports: [FormsModule],
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should call resta method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 3;
+    component.operator2 = 2;
+
+    // Act
+    component.substraction();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(1);
+ });
+
+ it('Should set operator1 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator1"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '2';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator1).toEqual(2);
+ });
+
+ it('Should set operator2 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator2"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '71';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator2).toEqual(71);
+});
+
+ it('should restar operator1 and operator2 when i click the resta button ', () => {
+  // Arrange 
+  component.operator1 = 5.0;
+  component.operator2 = 2.5;
+  let restaButton = fixture.debugElement.query(By.css('.substraction-button'));
+
+  // Act
+  restaButton.triggerEventHandler('click', null);
+
+  // Assert
+  expect(component.result).toBe(2.5);
+
+ });
+
+ it('Should render resta in result div', () => {
+  // Arrange
+  component.operator1 = 5;
+  component.operator2 = 5;
+
+  // Act
+  component.addition();
+  fixture.detectChanges();
+
+  let de = fixture.debugElement.query(By.css('.result'));
+  let el : HTMLElement = de.nativeElement;
+
+  // Assert
+  expect(el.innerText).toContain('0');
+
+});
+
+});
+
+//Division
+describe('Ui division - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ UiComponent ],
+      imports: [FormsModule],
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should call division method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 4;
+    component.operator2 = 2;
+
+    // Act
+    component.division();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(2);
+ });
+
+ it('Should set operator1 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator1"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '2';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator1).toEqual(2);
+ });
+
+ it('Should set operator2 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator2"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '71';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator2).toEqual(71);
+});
+
+ it('should restar operator1 and operator2 when i click the resta button ', () => {
+  // Arrange 
+  component.operator1 = 5.0;
+  component.operator2 = 2.5;
+  let restaButton = fixture.debugElement.query(By.css('.div-button'));
+
+  // Act
+  restaButton.triggerEventHandler('click', null);
+
+  // Assert
+  expect(component.result).toBe(2);
+
+ });
+
+ it('Should render div in result div', () => {
+  // Arrange
+  component.operator1 = 6;
+  component.operator2 = 2;
+
+  // Act
+  component.division();
+  fixture.detectChanges();
+
+  let de = fixture.debugElement.query(By.css('.result'));
+  let el : HTMLElement = de.nativeElement;
+
+  // Assert
+  expect(el.innerText).toContain('3');
+
+});
+
+});
+
+//Multiplicacion
+describe('Ui mul - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ UiComponent ],
+      imports: [FormsModule],
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should mul division method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 2;
+    component.operator2 = 2;
+
+    // Act
+    component.multiplication();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(4);
+ });
+
+ it('Should set operator1 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator1"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '2';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator1).toEqual(2);
+ });
+
+ it('Should set operator2 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator2"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '71';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator2).toEqual(71);
+});
+
+ it('should mul operator1 and operator2 when i click the mul button ', () => {
+  // Arrange 
+  component.operator1 = 5;
+  component.operator2 = 3;
+  let mulButton = fixture.debugElement.query(By.css('.mul-button'));
+
+  // Act
+  mulButton.triggerEventHandler('click', null);
+
+  // Assert
+  expect(component.result).toBe(15);
+
+ });
+
+ it('Should render mult in result div', () => {
+  // Arrange
+  component.operator1 = 6;
+  component.operator2 = 2;
+
+  // Act
+  component.multiplication();
+  fixture.detectChanges();
+
+  let de = fixture.debugElement.query(By.css('.result'));
+  let el : HTMLElement = de.nativeElement;
+
+  // Assert
+  expect(el.innerText).toContain('12');
+
+});
+
+});
+
+//Exponente
+describe('Ui exp - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ UiComponent ],
+      imports: [FormsModule],
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should exp division method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 2;
+    component.operator2 = 2;
+
+    // Act
+    component.exp();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(4);
+ });
+
+ it('Should set operator1 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator1"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '2';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator1).toEqual(2);
+ });
+
+ it('Should set operator2 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator2"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '71';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator2).toEqual(71);
+});
+
+ it('should exp operator1 and operator2 when i click the exp button ', () => {
+  // Arrange 
+  component.operator1 = 5;
+  component.operator2 = 3;
+  let expButton = fixture.debugElement.query(By.css('.exp-button'));
+
+  // Act
+  expButton.triggerEventHandler('click', null);
+
+  // Assert
+  expect(component.result).toBe(125);
+
+ });
+
+ it('Should render div in result div', () => {
+  // Arrange
+  component.operator1 = 6;
+  component.operator2 = 2;
+
+  // Act
+  component.exp();
+  fixture.detectChanges();
+
+  let de = fixture.debugElement.query(By.css('.result'));
+  let el : HTMLElement = de.nativeElement;
+
+  // Assert
+  expect(el.innerText).toContain('36');
+
+});
+
+});
+
+//Sqr
+describe('Ui sqr - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ UiComponent ],
+      imports: [FormsModule],
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should sqr division method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 4;
+
+    // Act
+    component.sqr();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(16);
+ });
+
+ it('Should set operator1 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator1"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '2';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator1).toEqual(2);
+ });
+
+ it('Should set operator2 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator2"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '71';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator2).toEqual(71);
+});
+
+ it('should msqr operator1 and operator2 when i click the sqr button ', () => {
+  // Arrange 
+  component.operator1 = 5;
+  let sqrButton = fixture.debugElement.query(By.css('.sqr-button'));
+
+  // Act
+  sqrButton.triggerEventHandler('click', null);
+
+  // Assert
+  expect(component.result).toBe(25);
+
+ });
+
+ it('Should render sqr in result div', () => {
+  // Arrange
+  component.operator1 = 6;
+
+  // Act
+  component.sqr();
+  fixture.detectChanges();
+
+  let de = fixture.debugElement.query(By.css('.result'));
+  let el : HTMLElement = de.nativeElement;
+
+  // Assert
+  expect(el.innerText).toContain('36');
+
+});
+
+});
+
+//Sqrt
+describe('Ui sqrt - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ UiComponent ],
+      imports: [FormsModule],
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should sqrt division method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 9;
+
+    // Act
+    component.sqrt();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(3);
+ });
+
+ it('Should set operator1 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator1"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '2';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator1).toEqual(2);
+ });
+
+ it('Should set operator2 model through ngModel', async() => {
+  // Arrange 
+  await fixture.whenStable();
+  fixture.detectChanges();
+  const inputElement = fixture.debugElement.query(By.css('input[name="operator2"]')).nativeElement;
+
+  // Act 
+  inputElement.value = '71';
+  inputElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+
+  // Assert 
+  expect(component.operator2).toEqual(71);
+});
+
+ it('should sqrt operator1 and operator2 when i click the sqrt button ', () => {
+  // Arrange 
+  component.operator1 = 16;
+  let sqrtButton = fixture.debugElement.query(By.css('.sqrt-button'));
+
+  // Act
+  sqrtButton.triggerEventHandler('click', null);
+
+  // Assert
+  expect(component.result).toBe(4);
+
+ });
+
+ it('Should render sqrt in result div', () => {
+  // Arrange
+  component.operator1 = 81;
+
+  // Act
+  component.sqrt();
+  fixture.detectChanges();
+
+  let de = fixture.debugElement.query(By.css('.result'));
+  let el : HTMLElement = de.nativeElement;
+
+  // Assert
+  expect(el.innerText).toContain('9');
+
+});
+
+});
